@@ -11,15 +11,12 @@
     */
 
 #SOLUTION NRO50
-    select 
-        concat(ROUND((count(*)*100.0 /(SELECT COUNT(*) FROM patients)),2 ),'%') 
-    AS PORCENT  FROM patients where gender = 'M';
 
+    SELECT concat(ROUND((count(*)*100.0 /(SELECT COUNT(*) FROM patients)),2 ),'%') 
+    AS PORCENT  FROM patients where gender = 'M';
 	
-	SELECT
-  		round(100 * avg(gender = 'M'), 2) || '%' AS PORCENT
+	SELECT round(100 * avg(gender = 'M'), 2) || '%' AS PORCENT
 	FROM patients;
   
-  	SELECT 
-   		CONCAT(ROUND(SUM(gender='M') / CAST(COUNT(*) AS float), 4) * 100, '%')
+  	SELECT CONCAT(ROUND(SUM(gender='M') / CAST(COUNT(*) AS float), 4) * 100, '%')
 	FROM patients;
